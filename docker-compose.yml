@@ -8,6 +8,16 @@ services:
       - POSTGRES_PASSWORD=postgres
     volumes:
       - ${HOME}/postgres-data/:/var/lib/postgresql/data
+  pgadmin:
+    image: dpage/pgadmin4
+    ports:
+      - 80:80
+      - 443:443
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@example.com
+      - PGADMIN_DEFAULT_PASSWORD=password
+    volumes:
+      - ${HOME}/pgadmin-data:/var/lib/pgadmin
   mailhog:
     image: mailhog/mailhog
     ports:
