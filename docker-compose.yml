@@ -1,0 +1,15 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  postgres:
+    image: postgres
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - ${HOME}/postgres-data/:/var/lib/postgresql/data
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - 1025:1025
+      - 8025:8025
